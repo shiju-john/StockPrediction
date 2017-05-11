@@ -8,8 +8,8 @@ Created on 08-May-2017
 
 from datetime import datetime
 from threading import Timer
-import ConfigReader
-import GFinanceDataDownloader
+from InputConfig import readConfigurations
+from GFinanceDataDownloader import GoogleFinanceQuote
 
 
 
@@ -28,10 +28,10 @@ def schedule_Job(job):
     
 def addDailyData():
     print("Job Started ")
-    rows = ConfigReader.readConfigurations('config/inputConfig.csv')
+    rows = readConfigurations('config/inputConfig.csv')
     for row in rows:
         exchangeId,stockName,timeDelay,days,companyName = row[0:5] 
-        q = GFinanceDataDownloader.GoogleFinanceQuote(exchangeId,stockName,0,0)              
+        q = GoogleFinanceQuote(exchangeId,stockName,0,0)              
         q.write_csv('dataset/{0}.csv'.format(exchangeId+'_'+companyName),'a') 
     #schedule_Job(addDailyData)
 

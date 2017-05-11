@@ -3,9 +3,8 @@ Created on 09-May-2017
 
 @author: fly
 '''
-import ConfigReader
-import numpy
-from ConfigReader import TalibConfigReader
+from InputConfig import readConfigurations
+from InputConfig import TalibConfigReader
 from  dateutil.parser import parse
 import os.path
 from talib import abstract
@@ -14,6 +13,7 @@ import pandas
 import time
 import StockInput
 import csv
+import numpy
 
 def enrichTalibValues(inputDict, features, result) :
     headers=''
@@ -51,7 +51,7 @@ def stripData(df,config):
 
 def writeNormalizeFile(outFileName): 
     
-    headerText=''
+    headerText=None
     with open('dataset/talib/{0}.csv'.format(outFileName)) as csvfile:
         rows=iter(csv.reader(csvfile)).next()
         headerText  =  str(rows)[1:-1]
@@ -124,7 +124,7 @@ def processData(rows):
 
 # main executor              
 if __name__ == '__main__':    
-    rows = ConfigReader.readConfigurations('config/inputConfig.csv')
+    rows = readConfigurations('config/inputConfig.csv')
     processData(rows)
     
     

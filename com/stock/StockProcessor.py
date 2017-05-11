@@ -6,7 +6,7 @@ Created on 10-May-2017
 
 import StockModel
 import StockInput
-import ConfigReader
+import InputConfig
 import os.path
 import numpy as np
 
@@ -47,6 +47,6 @@ def processData(rows):
 
 
 if __name__ == '__main__':    
-    rows = ConfigReader.readConfigurations('config/inputConfig.csv')
+    rows = InputConfig.readConfigurations('config/inputConfig.csv')
     processData(rows)
     

@@ -5,7 +5,7 @@ Created on 09-May-2017
 '''
 
 from nsepy import get_history
-from ConfigReader import readConfigurations
+from InputConfig import readConfigurations
 from datetime import date,  timedelta
 
 

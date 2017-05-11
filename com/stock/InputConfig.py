@@ -10,7 +10,7 @@ import configparser
 # Read the configuration file and return the configuration data as list data 
 def readConfigurations(fileName):    
     rows = []
-    with open(fileName, "rb") as f_obj:        
+    with open(fileName, "rb") as f_obj:         
         next(f_obj, None) # SKIP header 
         reader = csv.reader(f_obj)
         for row in reader:

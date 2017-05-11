@@ -3,20 +3,20 @@ Created on 10-May-2017
 
 @author: fly
 '''
-import ConfigReader
-import TalibProcessor
-import NseDataDownloader
+from InputConfig import readConfigurations
+from TalibProcessor import processData
+from NseDataDownloader import downloadNseData
 
 
 if __name__ == '__main__':
     
     print ("Reading Configurations...")
-    rows =ConfigReader.readConfigurations('config/inputConfig.csv')
+    rows = readConfigurations('config/inputConfig.csv')
     
     print ("Downloading NSE data")
-    NseDataDownloader.downloadNseData(rows)
+    downloadNseData(rows)
     
     print ("TALIB process started ")
-    TalibProcessor.processData(rows)
+    processData(rows)
     
     print ("Process Completed ...")

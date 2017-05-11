@@ -5,7 +5,7 @@ Created on 08-May-2017
 '''
 
 import urllib,datetime
-from  ConfigReader import processCSVFile
+from  InputConfig import readConfigurations 
 
 class Quote(object):
   
@@ -87,7 +87,7 @@ def downloadData(rows):
 
 # main executor              
 if __name__ == '__main__':
-    rows =processCSVFile('config/inputConfig.csv') 
+    rows =readConfigurations('config/inputConfig.csv') 
     downloadData(rows)   
     
     
