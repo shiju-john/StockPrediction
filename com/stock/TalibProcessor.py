@@ -5,7 +5,7 @@ Created on 09-May-2017
 '''
 import ConfigReader
 import numpy
-import TalibConfigReader
+from ConfigReader import TalibConfigReader
 from  dateutil.parser import parse
 import os.path
 from talib import abstract
@@ -117,14 +117,14 @@ def processFile(fileName,config ):
 
 
 def processData(rows):
-    talibConfig = TalibConfigReader.TalibConfigReader('config/TalibConfig.ini')
+    talibConfig = TalibConfigReader('config/TalibConfig.ini')
     for row in rows:
         exchangeId,stockName,timeDelay,days,companyName = row[0:5]
         processFile(exchangeId+'_'+companyName,talibConfig)
 
 # main executor              
 if __name__ == '__main__':    
-    rows = ConfigReader.processCSVFile('config/inputConfig.csv')
+    rows = ConfigReader.readConfigurations('config/inputConfig.csv')
     processData(rows)
     
     

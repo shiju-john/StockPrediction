@@ -11,7 +11,7 @@ import NseDataDownloader
 if __name__ == '__main__':
     
     print ("Reading Configurations...")
-    rows =ConfigReader.processCSVFile('config/inputConfig.csv')
+    rows =ConfigReader.readConfigurations('config/inputConfig.csv')
     
     print ("Downloading NSE data")
     NseDataDownloader.downloadNseData(rows)

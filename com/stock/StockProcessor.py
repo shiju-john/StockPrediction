@@ -47,6 +47,6 @@ def processData(rows):
 
 
 if __name__ == '__main__':    
-    rows = ConfigReader.processCSVFile('config/inputConfig.csv')
+    rows = ConfigReader.readConfigurations('config/inputConfig.csv')
     processData(rows)
     

@@ -5,7 +5,7 @@ Created on 09-May-2017
 '''
 
 from nsepy import get_history
-from ConfigReader import processCSVFile
+from ConfigReader import readConfigurations
 from datetime import date,  timedelta
 
 
@@ -26,6 +26,6 @@ def downloadNseData(rows) :
             
 # main executor              
 if __name__ == '__main__':    
-    rows =processCSVFile('config/inputConfig.csv')
+    rows =readConfigurations('config/inputConfig.csv')
     downloadNseData(rows)
     print("Process Completed...")

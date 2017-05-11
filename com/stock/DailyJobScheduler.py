@@ -28,7 +28,7 @@ def schedule_Job(job):
     
 def addDailyData():
     print("Job Started ")
-    rows = ConfigReader.processCSVFile('config/inputConfig.csv')
+    rows = ConfigReader.readConfigurations('config/inputConfig.csv')
     for row in rows:
         exchangeId,stockName,timeDelay,days,companyName = row[0:5] 
         q = GFinanceDataDownloader.GoogleFinanceQuote(exchangeId,stockName,0,0)              
